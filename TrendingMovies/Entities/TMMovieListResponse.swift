@@ -1,0 +1,50 @@
+//
+//  DummyResponseModel.swift
+//  TrendingMovies
+//
+//  Created by Mohamed Eltahan on 17/08/2023.
+//
+
+import Foundation
+
+struct TMMovie: Codable {
+    let adult: Bool
+    let backdropPath: String?
+    let genreIds: [Int]
+    let id: Int
+    let originalLanguage: String
+    let originalTitle: String
+    let overview: String
+    let popularity: Double
+    let posterPath: String?
+    let releaseDate: String
+    let title: String
+    let video: Bool
+    let voteAverage: Double
+    let voteCount: Int
+
+    private enum CodingKeys: String, CodingKey {
+        case adult, id, overview, popularity, title, video
+        case backdropPath = "backdrop_path"
+        case genreIds = "genre_ids"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
+}
+
+struct TMMovieListResponse: Codable {
+    let page: Int
+    let results: [TMMovie]
+    let totalPages: Int
+    let totalResults: Int
+
+    private enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
