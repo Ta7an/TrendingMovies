@@ -16,12 +16,14 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
     var view: TMMoviesListViewInterface?
     var interactor: TMMoviesListInteractorInputInterface
     var wireframe: TMMoviesListWireframeInterface?
-    
+    private let errorHandler: ErrorHandling
+
     private var currentPage = 1
 
-    init(view: TMMoviesListViewInterface?, interactor: TMMoviesListInteractorInputInterface) {
+    init(view: TMMoviesListViewInterface?, interactor: TMMoviesListInteractorInputInterface, errorHandler: ErrorHandling) {
         self.view = view
         self.interactor = interactor
+        self.errorHandler = errorHandler
     }
     
     func presentMainLoading() {
@@ -97,7 +99,7 @@ extension TMMoviesListPresenter: TMMoviesListInteractorOutputInterface {
         presentMainLoadingComplete()
         presentBottomLoadingComplete()
 
-//        view?.showError(error.localizedDescription)
+        errorHandler.handleAPIError(error.localizedDescription)
     }
 
 }

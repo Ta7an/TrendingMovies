@@ -25,8 +25,8 @@ extension TMMoviesListWireframe {
         let wireframe = TMMoviesListWireframe()
         let nav = storyboard.instantiateViewController(withIdentifier: "nav") as! UINavigationController
         let view = nav.viewControllers.first as! TMMoviesListController
-        let interactor = TMMoviesListInteractor(configService: TMConfigurationService(), movieService: TMMovieService())
-        let presenter = TMMoviesListPresenter(view: view, interactor: interactor)
+        let interactor = TMMoviesListInteractor(configService: TMConfigurationService(), movieService: TMMovieService(), errorHandler: view)
+        let presenter = TMMoviesListPresenter(view: view, interactor: interactor, errorHandler: view)
         
         view.presenter = presenter
         

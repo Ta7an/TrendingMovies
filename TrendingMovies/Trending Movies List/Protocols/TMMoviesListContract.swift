@@ -45,6 +45,7 @@ protocol TMMoviesListInteractorInputInterface: TMBaseInteractor {
 protocol TMMoviesListInteractorOutputInterface: AnyObject {
     func onConfigFetched(_ config: TMConfigModel)
     func onMoviesFetched(_ movies: [TMMovie])
+    func onError(_ error: Error)
 }
 
 protocol TMConfigurationServiceInterface {

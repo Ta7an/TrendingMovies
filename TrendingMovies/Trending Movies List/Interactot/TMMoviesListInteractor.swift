@@ -16,17 +16,23 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
     
     private var configService: TMConfigurationService
     private var movieService: TMMovieService
-    
+    private let errorHandler: ErrorHandling
+
     var output: TMMoviesListInteractorOutputInterface?
 
+    init(configService: TMConfigurationService, movieService: TMMovieService, errorHandler: ErrorHandling) {
+        self.configService = configService
+        self.movieService = movieService
+        self.errorHandler = errorHandler
+    }
+    
     func fetchConfiguration() {
         configService.fetchConfig { [weak self] result in
             switch result {
             case .success(let config):
                 self?.output?.onConfigFetched(config)
             case .failure(let error):
-//                self?.output?.onError(error)
-                break
+                self?.output?.onError(error)
             }
         }
     }
@@ -37,16 +43,9 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
             case .success(let movies):
                 self?.output?.onMoviesFetched(movies)
             case .failure(let error):
-//                self?.output?.onError(error)
-                break
+                self?.output?.onError(error)
             }
         }
-    }
-
-
-    init(configService: TMConfigurationService, movieService: TMMovieService) {
-        self.configService = configService
-        self.movieService = movieService
     }
 }
 

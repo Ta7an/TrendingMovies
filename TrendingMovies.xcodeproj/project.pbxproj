@@ -33,6 +33,8 @@
 		09602E272ABEA49E001F6280 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 09602E262ABEA49E001F6280 /* SDWebImage */; };
 		09602E2A2ABEABB2001F6280 /* TMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E292ABEABB2001F6280 /* TMConfigModel.swift */; };
 		09602E2C2ABEAC31001F6280 /* TMConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E2B2ABEAC31001F6280 /* TMConfigurationService.swift */; };
+		09602E2E2ABECB37001F6280 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E2D2ABECB37001F6280 /* ErrorHandling.swift */; };
+		09602E302ABECB91001F6280 /* UIViewController+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E2F2ABECB90001F6280 /* UIViewController+ErrorHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		09205AC62ABA89FB00A76831 /* TMMovieUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieUIModel.swift; sourceTree = "<group>"; };
 		09602E292ABEABB2001F6280 /* TMConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfigModel.swift; sourceTree = "<group>"; };
 		09602E2B2ABEAC31001F6280 /* TMConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfigurationService.swift; sourceTree = "<group>"; };
+		09602E2D2ABECB37001F6280 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		09602E2F2ABECB90001F6280 /* UIViewController+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorHandling.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				0901E4B72A8E721F0079D5D5 /* TMDBApiInfo.swift */,
+				09602E2D2ABECB37001F6280 /* ErrorHandling.swift */,
+				09602E2F2ABECB90001F6280 /* UIViewController+ErrorHandling.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -410,8 +416,10 @@
 				09205AAD2AAD486400A76831 /* TMMoviesListContract.swift in Sources */,
 				09205AB02AAD486400A76831 /* TMMoviesListInteractor.swift in Sources */,
 				09602E2A2ABEABB2001F6280 /* TMConfigModel.swift in Sources */,
+				09602E2E2ABECB37001F6280 /* ErrorHandling.swift in Sources */,
 				09205AC42AB9141D00A76831 /* SceneDelegate.swift in Sources */,
 				0901E4B62A8E694B0079D5D5 /* TMMovieTableViewCell.swift in Sources */,
+				09602E302ABECB91001F6280 /* UIViewController+ErrorHandling.swift in Sources */,
 				09205ABD2AB553B900A76831 /* TMMovieService.swift in Sources */,
 				09205AAE2AAD486400A76831 /* TMMoviesListPresenter.swift in Sources */,
 				0901E4BA2A8E73EE0079D5D5 /* TMMovieListResponse.swift in Sources */,

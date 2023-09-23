@@ -117,7 +117,7 @@ extension TMMoviesListController {
 }
 
 // MARK: TMMoviesListViewInterface - Setup Methods
-extension TMMoviesListController: TMMoviesListViewInterface {
+extension TMMoviesListController: TMMoviesListViewInterface, ErrorHandling {
     
     // Update  data source and reload the table view
     fileprivate func reloadTableView() {
@@ -138,6 +138,12 @@ extension TMMoviesListController: TMMoviesListViewInterface {
         reloadTableView()
     }
 
+    func handleAPIError(_ errorMessage: String) {
+        isLoadingData = false
+        
+        // Show an alert with the error message
+        showAlert(message: errorMessage)
+    }
 }
 
 // MARK: TableView Delegate and DataSource Methods
