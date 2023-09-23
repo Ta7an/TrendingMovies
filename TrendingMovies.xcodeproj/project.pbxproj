@@ -15,7 +15,7 @@
 		0901E4A72A8E53770079D5D5 /* TrendingMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4A62A8E53770079D5D5 /* TrendingMoviesUITests.swift */; };
 		0901E4A92A8E53770079D5D5 /* TrendingMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4A82A8E53770079D5D5 /* TrendingMoviesUITestsLaunchTests.swift */; };
 		0901E4B62A8E694B0079D5D5 /* TMMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4B52A8E694B0079D5D5 /* TMMovieTableViewCell.swift */; };
-		0901E4B82A8E721F0079D5D5 /* TMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4B72A8E721F0079D5D5 /* TMNetworkManager.swift */; };
+		0901E4B82A8E721F0079D5D5 /* TMDBApiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4B72A8E721F0079D5D5 /* TMDBApiInfo.swift */; };
 		0901E4BA2A8E73EE0079D5D5 /* TMMovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901E4B92A8E73EE0079D5D5 /* TMMovieListResponse.swift */; };
 		09205AAD2AAD486400A76831 /* TMMoviesListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09205AA72AAD486400A76831 /* TMMoviesListContract.swift */; };
 		09205AAE2AAD486400A76831 /* TMMoviesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09205AA82AAD486400A76831 /* TMMoviesListPresenter.swift */; };
@@ -30,6 +30,9 @@
 		09205AC02AB727FF00A76831 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 09205ABF2AB727FF00A76831 /* Alamofire */; };
 		09205AC42AB9141D00A76831 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09205AC32AB9141D00A76831 /* SceneDelegate.swift */; };
 		09205AC72ABA89FB00A76831 /* TMMovieUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09205AC62ABA89FB00A76831 /* TMMovieUIModel.swift */; };
+		09602E272ABEA49E001F6280 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 09602E262ABEA49E001F6280 /* SDWebImage */; };
+		09602E2A2ABEABB2001F6280 /* TMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E292ABEABB2001F6280 /* TMConfigModel.swift */; };
+		09602E2C2ABEAC31001F6280 /* TMConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E2B2ABEAC31001F6280 /* TMConfigurationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,7 @@
 		0901E4A62A8E53770079D5D5 /* TrendingMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesUITests.swift; sourceTree = "<group>"; };
 		0901E4A82A8E53770079D5D5 /* TrendingMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0901E4B52A8E694B0079D5D5 /* TMMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieTableViewCell.swift; sourceTree = "<group>"; };
-		0901E4B72A8E721F0079D5D5 /* TMNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNetworkManager.swift; sourceTree = "<group>"; };
+		0901E4B72A8E721F0079D5D5 /* TMDBApiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApiInfo.swift; sourceTree = "<group>"; };
 		0901E4B92A8E73EE0079D5D5 /* TMMovieListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieListResponse.swift; sourceTree = "<group>"; };
 		09205AA72AAD486400A76831 /* TMMoviesListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMoviesListContract.swift; sourceTree = "<group>"; };
 		09205AA82AAD486400A76831 /* TMMoviesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMoviesListPresenter.swift; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 		09205ABC2AB553B900A76831 /* TMMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieService.swift; sourceTree = "<group>"; };
 		09205AC32AB9141D00A76831 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09205AC62ABA89FB00A76831 /* TMMovieUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieUIModel.swift; sourceTree = "<group>"; };
+		09602E292ABEABB2001F6280 /* TMConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfigModel.swift; sourceTree = "<group>"; };
+		09602E2B2ABEAC31001F6280 /* TMConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfigurationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09602E272ABEA49E001F6280 /* SDWebImage in Frameworks */,
 				09205AC02AB727FF00A76831 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +171,7 @@
 				09205ACB2ABA8CAD00A76831 /* Presenter */,
 				09205ACC2ABA8CB500A76831 /* Interactot */,
 				09205ACD2ABA8CF200A76831 /* Service */,
+				09602E282ABEAB9C001F6280 /* Entities */,
 				09205ACE2ABA8CF900A76831 /* WireFrame */,
 			);
 			path = "Trending Movies List";
@@ -184,7 +191,7 @@
 		09205AC52ABA80E900A76831 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0901E4B72A8E721F0079D5D5 /* TMNetworkManager.swift */,
+				0901E4B72A8E721F0079D5D5 /* TMDBApiInfo.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -192,8 +199,7 @@
 		09205AC82ABA8C1C00A76831 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				0901E4B92A8E73EE0079D5D5 /* TMMovieListResponse.swift */,
-				09205AC62ABA89FB00A76831 /* TMMovieUIModel.swift */,
+				09602E292ABEABB2001F6280 /* TMConfigModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				09205ABC2AB553B900A76831 /* TMMovieService.swift */,
+				09602E2B2ABEAC31001F6280 /* TMConfigurationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -246,6 +253,15 @@
 				09205AAB2AAD486400A76831 /* TMMoviesListWireframe.swift */,
 			);
 			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		09602E282ABEAB9C001F6280 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0901E4B92A8E73EE0079D5D5 /* TMMovieListResponse.swift */,
+				09205AC62ABA89FB00A76831 /* TMMovieUIModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +282,7 @@
 			name = TrendingMovies;
 			packageProductDependencies = (
 				09205ABF2AB727FF00A76831 /* Alamofire */,
+				09602E262ABEA49E001F6280 /* SDWebImage */,
 			);
 			productName = TrendingMovies;
 			productReference = 0901E4822A8E53740079D5D5 /* TrendingMovies.app */;
@@ -341,6 +358,7 @@
 			mainGroup = 0901E4792A8E53740079D5D5;
 			packageReferences = (
 				09205ABE2AB727FF00A76831 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				09602E252ABEA49E001F6280 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0901E4832A8E53740079D5D5 /* Products */;
 			projectDirPath = "";
@@ -385,12 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0901E4B82A8E721F0079D5D5 /* TMNetworkManager.swift in Sources */,
+				0901E4B82A8E721F0079D5D5 /* TMDBApiInfo.swift in Sources */,
 				09205AB92AB5426E00A76831 /* TMBaseInteractor.swift in Sources */,
 				0901E4862A8E53740079D5D5 /* AppDelegate.swift in Sources */,
 				09205ABB2AB5432100A76831 /* TMBaseWireFrame.swift in Sources */,
 				09205AAD2AAD486400A76831 /* TMMoviesListContract.swift in Sources */,
 				09205AB02AAD486400A76831 /* TMMoviesListInteractor.swift in Sources */,
+				09602E2A2ABEABB2001F6280 /* TMConfigModel.swift in Sources */,
 				09205AC42AB9141D00A76831 /* SceneDelegate.swift in Sources */,
 				0901E4B62A8E694B0079D5D5 /* TMMovieTableViewCell.swift in Sources */,
 				09205ABD2AB553B900A76831 /* TMMovieService.swift in Sources */,
@@ -399,6 +418,7 @@
 				09205AB52AB5400100A76831 /* TMBaseViewController.swift in Sources */,
 				09205AAF2AAD486400A76831 /* TMMoviesListController.swift in Sources */,
 				09205AB12AAD486400A76831 /* TMMoviesListWireframe.swift in Sources */,
+				09602E2C2ABEAC31001F6280 /* TMConfigurationService.swift in Sources */,
 				09205AB72AB5407A00A76831 /* TMBasePresenter.swift in Sources */,
 				09205AC72ABA89FB00A76831 /* TMMovieUIModel.swift in Sources */,
 			);
@@ -752,6 +772,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		09602E252ABEA49E001F6280 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -759,6 +787,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 09205ABE2AB727FF00A76831 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		09602E262ABEA49E001F6280 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09602E252ABEA49E001F6280 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

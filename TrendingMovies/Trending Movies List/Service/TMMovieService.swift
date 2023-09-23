@@ -9,13 +9,10 @@ import Alamofire
 import Foundation
 
 class TMMovieService: TMMovieServiceInterface {
-    private let baseURL = "https://api.themoviedb.org/3"
-    private let apiKey = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYWJhYjk1M2I4YmI5NDRhMjZhZTUzNTY1MDYxYmI0OCIsInN1YiI6IjVkM2YzNzNjNjBiNThkMDAxMzZiMTdlYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.stO3kR4vaq6florlgdK3SRlIe-8Fy9sE1MazINv8jl0"
     
     func fetchMovies(page: Int, completion: @escaping (Result<[TMMovie], Error>) -> Void) {
-        let url = "\(baseURL)/discover/movie"
+        let url = "\(TMDBApiInfo.baseURL)/discover/movie"
         let parameters: [String: Any] = [
-            "api_key": apiKey,
             "page": page,
             "include_adult": false,
             "include_video": false,
@@ -25,7 +22,7 @@ class TMMovieService: TMMovieServiceInterface {
         
         let headers: HTTPHeaders = [
             "accept": "application/json",
-            "Authorization": apiKey
+            "Authorization": TMDBApiInfo.apiKey
         ]
         
         let request = AF.request(url, method: .get, parameters: parameters, headers: headers)

@@ -56,6 +56,7 @@ extension TMMoviesListPresenter {
     }
 
     func viewDidLoad() {
+        interactor.fetchConfiguration()
         fetchMovies()
     }
     
@@ -86,6 +87,10 @@ extension TMMoviesListPresenter: TMMoviesListInteractorOutputInterface {
         let movieUIModels = transformMoviesToUIModels(movies: movies)
         view?.updateMoviesList(movieUIModels)
         currentPage += 1
+    }
+    
+    func onConfigFetched(_ config: TMConfigModel) {
+        view?.updateTMDBImagesConfig(config.images)
     }
     
     func onError(_ error: Error) {

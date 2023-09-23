@@ -14,9 +14,23 @@ import Foundation
 class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
     var presenter: TMMoviesListInteractorOutputInterface?
     
-    private var movieService: TMMovieService // Replace with your network service
+    private var configService: TMConfigurationService
+    private var movieService: TMMovieService
+    
     var output: TMMoviesListInteractorOutputInterface?
 
+    func fetchConfiguration() {
+        configService.fetchConfig { [weak self] result in
+            switch result {
+            case .success(let config):
+                self?.output?.onConfigFetched(config)
+            case .failure(let error):
+//                self?.output?.onError(error)
+                break
+            }
+        }
+    }
+    
     func fetchMovies(page: Int) {
         movieService.fetchMovies(page: page) { [weak self] result in
             switch result {
@@ -30,7 +44,8 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
     }
 
 
-    init(movieService: TMMovieService) {
+    init(configService: TMConfigurationService, movieService: TMMovieService) {
+        self.configService = configService
         self.movieService = movieService
     }
 }

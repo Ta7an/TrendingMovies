@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SDWebImage
 
 // MARK: TMMoviesListController: BaseViewController
 
@@ -19,7 +20,8 @@ class TMMoviesListController: UIViewController {
     var presenter: TMMoviesListPresenterInterface?
     private var isLoadingData = false
     var movies: [TMMovieUIModel] = []
-
+    var imagesConfig: TMImagesConfig?
+    
     // MARK: Views
     @IBOutlet weak var tableView: UITableView!
     
@@ -118,14 +120,24 @@ extension TMMoviesListController {
 extension TMMoviesListController: TMMoviesListViewInterface {
     
     // Update  data source and reload the table view
-    func updateMoviesList(_ movies: [TMMovieUIModel]) {
-        self.isLoadingData = false
-        self.movies.append(contentsOf: movies)
-
+    fileprivate func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
     }
+    
+    func updateMoviesList(_ movies: [TMMovieUIModel]) {
+        self.isLoadingData = false
+        self.movies.append(contentsOf: movies)
+
+        reloadTableView()
+    }
+    
+    func updateTMDBImagesConfig(_ config: TMImagesConfig) {
+        self.imagesConfig = config
+        reloadTableView()
+    }
+
 }
 
 // MARK: TableView Delegate and DataSource Methods
@@ -143,8 +155,10 @@ extension TMMoviesListController: UITableViewDelegate, UITableViewDataSource, UI
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCellIdentifier, for: indexPath) as? TMMovieTableViewCell else {
             return UITableViewCell()
         }
-        cell.movieNameLabel.text = movies[indexPath.row].title
-        cell.movieProductionYearLabel.text = movies[indexPath.row].releaseDate
+        let movie = movies[indexPath.row]
+        cell.movieNameLabel.text = movie.title
+        cell.movieProductionYearLabel.text = movie.releaseDate
+        cell.movieBannerImageView.sd_setImage(with: movie.posterURL(using: imagesConfig))
         return cell
     }
     
@@ -158,6 +172,14 @@ extension TMMoviesListController: UITableViewDelegate, UITableViewDataSource, UI
            lastVisibleIndexPath == lastIndexPath {
             isLoadingData = true
             presenter?.fetchMovies()
+        }
+        
+        for indexPath in indexPaths {
+            if indexPath.row < movies.count {
+                let movie = movies[indexPath.row]
+                SDWebImageManager.shared.loadImage(with: movie.posterURL(using: imagesConfig), options: [], progress: nil) {_,_,_,_,_,_ in }
+
+            }
         }
     }
     

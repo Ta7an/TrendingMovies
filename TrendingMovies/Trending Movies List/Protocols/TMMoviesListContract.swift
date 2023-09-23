@@ -13,7 +13,8 @@ import UIKit
 protocol TMMoviesListViewInterface: TMBaseViewController {
     var presenter: TMMoviesListPresenterInterface? { get set }
     func updateMoviesList(_ movies: [TMMovieUIModel])
-    
+    func updateTMDBImagesConfig(_ config: TMImagesConfig)
+
     // Loading indicators..
     func showMainLoadingIndicator()
     func hideMainLoadingIndicator()
@@ -34,13 +35,20 @@ protocol TMMoviesListPresenterInterface: TMBasePresenter {
 
 protocol TMMoviesListInteractorInputInterface: TMBaseInteractor {
     var output: TMMoviesListInteractorOutputInterface? { get set }
+    
+    func fetchConfiguration()
     func fetchMovies(page: Int)
 
     func outputFinished()
 }
 
 protocol TMMoviesListInteractorOutputInterface: AnyObject {
+    func onConfigFetched(_ config: TMConfigModel)
     func onMoviesFetched(_ movies: [TMMovie])
+}
+
+protocol TMConfigurationServiceInterface {
+    func fetchConfig(completion: @escaping (Result<TMConfigModel, Error>) -> Void)
 }
 
 protocol TMMovieServiceInterface {
