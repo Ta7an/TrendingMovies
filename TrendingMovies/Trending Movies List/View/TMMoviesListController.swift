@@ -20,30 +20,97 @@ class TMMoviesListController: UIViewController {
     private var isLoadingData = false
     var movies: [TMMovieUIModel] = []
 
-    // MARK: Outlets
+    // MARK: Views
     @IBOutlet weak var tableView: UITableView!
+    
+    // Main loading indicator
+    let mainLoadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
+    // Bottom loading indicator
+    let bottomLoadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
 }
 
 // MARK: Lifecycle Methods
 extension TMMoviesListController {
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        presenter?.viewWillAppear(animated)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
+        // Add main loading indicator to the view
+        mainLoadingIndicator.center = view.center
+        view.addSubview(mainLoadingIndicator)
+        
+        // Initialize and configure the loading indicators
+        configureMainLoadingIndicator()
+        configureBottomLoadingIndicator()
+
         presenter?.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        presenter?.viewWillAppear(animated)
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         presenter?.viewDidDisappear(animated)
+    }
+    
+    // MARK: - UI Configuration
+
+    private func configureMainLoadingIndicator() {
+        mainLoadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        mainLoadingIndicator.hidesWhenStopped = true
+        view.addSubview(mainLoadingIndicator)
+        
+        // Center the main loading indicator
+        mainLoadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mainLoadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func configureBottomLoadingIndicator() {
+        // Create a container view for the loading indicator
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44))
+        
+        // Center the loading indicator in the container
+        bottomLoadingIndicator.center = CGPoint(x: container.bounds.midX, y: container.bounds.midY)
+        
+        // Add the loading indicator to the container
+        container.addSubview(bottomLoadingIndicator)
+        
+        // Set the container as the table view's footer
+        tableView.tableFooterView = container
+    }
+
+    func showMainLoadingIndicator() {
+        mainLoadingIndicator.startAnimating()
+        view.isUserInteractionEnabled = false // Disable user interaction during loading if needed
+    }
+
+    func hideMainLoadingIndicator() {
+        mainLoadingIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true // Re-enable user interaction
+    }
+
+    func showBottomLoadingIndicator() {
+        configureBottomLoadingIndicator()
+        bottomLoadingIndicator.startAnimating()
+    }
+
+    func hideBottomLoadingIndicator() {
+        bottomLoadingIndicator.stopAnimating()
     }
 }
 

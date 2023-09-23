@@ -24,6 +24,21 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
         self.interactor = interactor
     }
     
+    func presentMainLoading() {
+        view?.showMainLoadingIndicator()
+    }
+
+    func presentMainLoadingComplete() {
+        view?.hideMainLoadingIndicator()
+    }
+
+    func presentBottomLoading() {
+        view?.showBottomLoadingIndicator()
+    }
+
+    func presentBottomLoadingComplete() {
+        view?.hideBottomLoadingIndicator()
+    }
 }
 
 // MARK: HomePresenterInterface - Lifecycle methods
@@ -31,6 +46,12 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
 extension TMMoviesListPresenter {
     
     func fetchMovies() {
+        switch currentPage {
+        case 1:
+            presentMainLoading()
+        default:
+            presentBottomLoading()
+        }
         interactor.fetchMovies(page: currentPage)
     }
 
@@ -59,12 +80,18 @@ extension TMMoviesListPresenter: TMMoviesListInteractorOutputInterface {
     }
 
     func onMoviesFetched(_ movies: [TMMovie]) {
+        presentMainLoadingComplete()
+        presentBottomLoadingComplete()
+        
         let movieUIModels = transformMoviesToUIModels(movies: movies)
         view?.updateMoviesList(movieUIModels)
         currentPage += 1
     }
     
     func onError(_ error: Error) {
+        presentMainLoadingComplete()
+        presentBottomLoadingComplete()
+
 //        view?.showError(error.localizedDescription)
     }
 

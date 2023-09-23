@@ -13,6 +13,12 @@ import UIKit
 protocol TMMoviesListViewInterface: TMBaseViewController {
     var presenter: TMMoviesListPresenterInterface? { get set }
     func updateMoviesList(_ movies: [TMMovieUIModel])
+    
+    // Loading indicators..
+    func showMainLoadingIndicator()
+    func hideMainLoadingIndicator()
+    func showBottomLoadingIndicator()
+    func hideBottomLoadingIndicator()
 }
 
 protocol TMMoviesListPresenterInterface: TMBasePresenter {
