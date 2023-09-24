@@ -13,7 +13,6 @@ import UIKit
 
 class TMMoviesListWireframe: TMMoviesListWireframeInterface {
     
-    weak var viewController: UIViewController?
     private weak var navigationController: UINavigationController?
 }
 
@@ -35,7 +34,6 @@ extension TMMoviesListWireframe {
         presenter.wireframe = wireframe
         
         interactor.output = presenter
-        wireframe.viewController = view
         
         return wireframe.navigationController ?? UIViewController()
     }

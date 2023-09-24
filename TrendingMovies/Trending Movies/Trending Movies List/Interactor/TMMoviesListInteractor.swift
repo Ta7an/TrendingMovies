@@ -12,13 +12,13 @@ import Foundation
 // MARK: TMMoviesListInteractor: BaseInteractor
 
 class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
-    var presenter: TMMoviesListInteractorOutputInterface?
+    weak var presenter: TMMoviesListInteractorOutputInterface?
     
     private var configService: TMConfigurationService
     private var movieService: TMMovieService
     private let errorHandler: ErrorHandling
 
-    var output: TMMoviesListInteractorOutputInterface?
+    weak var output: TMMoviesListInteractorOutputInterface?
 
     init(configService: TMConfigurationService, movieService: TMMovieService, errorHandler: ErrorHandling) {
         self.configService = configService

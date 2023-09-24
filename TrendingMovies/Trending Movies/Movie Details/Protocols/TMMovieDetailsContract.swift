@@ -27,7 +27,7 @@ protocol TMMovieDetailsInteractorInputInterface: TMBaseInteractor {
     var configData: TMImagesConfig? { get }
 }
 
-protocol TMMovieDetailsInteractorOutputInterface {
+protocol TMMovieDetailsInteractorOutputInterface: AnyObject {
     
 }
 

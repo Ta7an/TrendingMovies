@@ -13,7 +13,7 @@ import Foundation
 
 class TMMoviesListPresenter: TMMoviesListPresenterInterface {
     
-    var view: TMMoviesListViewInterface?
+    weak var view: TMMoviesListViewInterface?
     var interactor: TMMoviesListInteractorInputInterface
     var wireframe: TMMoviesListWireframeInterface?
     private let errorHandler: ErrorHandling

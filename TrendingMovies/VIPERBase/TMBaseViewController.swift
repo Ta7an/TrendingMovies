@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TMBaseViewController {
+protocol TMBaseViewController: AnyObject {
 //    func setupUI()
 }
 

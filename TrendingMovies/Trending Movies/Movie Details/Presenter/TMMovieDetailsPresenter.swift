@@ -13,7 +13,7 @@ import Foundation
 
 class TMMovieDetailsPresenter {
     
-    var view: TMMovieDetailsViewInterface?
+    weak var view: TMMovieDetailsViewInterface?
     var interactor: TMMovieDetailsInteractorInputInterface?
     var wireframe: TMMovieDetailsWireframeInterface?
     

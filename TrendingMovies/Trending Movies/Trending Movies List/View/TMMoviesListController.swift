@@ -26,18 +26,10 @@ class TMMoviesListController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // Main loading indicator
-    let mainLoadingIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
+    let mainLoadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
 
     // Bottom loading indicator
-    let bottomLoadingIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .medium)
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
+    let bottomLoadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
 
 }
 
@@ -46,7 +38,7 @@ extension TMMoviesListController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Add main loading indicator to the view
         mainLoadingIndicator.center = view.center
         view.addSubview(mainLoadingIndicator)

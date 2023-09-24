@@ -14,7 +14,7 @@ import Foundation
 class TMMovieDetailsInteractor: TMBaseInteractor {
     let configurationService: TMConfigurationService
     
-    var output: TMMovieDetailsInteractorOutputInterface?
+    weak var output: TMMovieDetailsInteractorOutputInterface?
     
     init(output: TMMovieDetailsInteractorOutputInterface?, configurationService: TMConfigurationService) {
         self.output = output

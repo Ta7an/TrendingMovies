@@ -12,7 +12,6 @@ import UIKit
 // MARK: TMMovieDetailsWireframe: TMMovieDetailsWireframeInterface
 
 class TMMovieDetailsWireframe: TMMovieDetailsWireframeInterface {
-    weak var viewController: UIViewController?
 }
 
 // MARK: build's Module
@@ -36,7 +35,6 @@ extension TMMovieDetailsWireframe {
         presenter.wireframe = wireframe
         
         interactor.output = presenter
-        wireframe.viewController = view
         
         return view
     }
