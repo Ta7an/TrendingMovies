@@ -1,0 +1,25 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches:
+      - main  # Replace with your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Swift
+      uses: actions/setup-swift@v2
+      with:
+        swift-version: '5.5'  # Specify the Swift version you're using
+
+    - name: Build
+      run: swift build
+
+    - name: Run Unit Tests
+      run: swift test
