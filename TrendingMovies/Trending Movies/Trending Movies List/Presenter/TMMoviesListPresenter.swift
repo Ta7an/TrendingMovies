@@ -43,8 +43,6 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
     }
 }
 
-// MARK: HomePresenterInterface - Lifecycle methods
-
 extension TMMoviesListPresenter {
     
     func fetchMovies() {
@@ -56,6 +54,16 @@ extension TMMoviesListPresenter {
         }
         interactor.fetchMovies(page: currentPage)
     }
+    
+    func didSelectMovie(_ movie: TMMovieUIModel) {
+        // When a movie cell is tapped, prepare the data and request navigation
+        wireframe?.navigateToMovieDetails(movie)
+    }
+}
+
+// MARK: HomePresenterInterface - Lifecycle methods
+
+extension TMMoviesListPresenter {
 
     func viewDidLoad() {
         interactor.fetchConfiguration()

@@ -58,7 +58,6 @@ extension TMMoviesListInteractor {
     func outputFinished() {
 //        disposibles.dispose()
         
-        self.output = nil
     }
     
 }

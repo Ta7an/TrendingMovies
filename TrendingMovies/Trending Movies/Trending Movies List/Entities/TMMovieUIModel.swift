@@ -24,9 +24,9 @@ struct TMMovieUIModel {
         self.voteAverage = movie.voteAverage
         // Initialize other properties as needed
     }
-        
-    func posterURL(using imagesConfig: TMImagesConfig?) -> URL {
-        return posterURL(for: posterPath, imagesConfig: imagesConfig)
+    
+    func posterURL(using imagesConfig: TMImagesConfig?, largePosterSize: Bool = false) -> URL {
+        return posterURL(for: posterPath, imagesConfig: imagesConfig, largePosterSize: largePosterSize)
     }
     
     /// The first two pieces can be retrieved by calling the /configuration API and the third is the file path you're wishing to grab on a particular media object. Here's what a full image URL looks like if the poster_path of /1E5baAaEse26fej7uHcjOgEE2t2.jpg was returned for a movie, and you were looking for the w500 size:
@@ -37,10 +37,11 @@ struct TMMovieUIModel {
     ///   - posterPath: Movie's paster path
     ///   - imagesConfig: images config object
     /// - Returns: Movie's poster URL
-    private func posterURL(for posterPath: String?, imagesConfig: TMImagesConfig?) -> URL {
+    private func posterURL(for posterPath: String?, imagesConfig: TMImagesConfig?, largePosterSize: Bool = false) -> URL {
+        let posterSize = largePosterSize ? imagesConfig?.posterSizes.last : imagesConfig?.posterSizes.first
         guard let baseURL = imagesConfig?.secureBaseURL,
               let posterPath = posterPath,
-              let posterSize = imagesConfig?.posterSizes.first else {
+              let posterSize = posterSize else {
             return URL(fileURLWithPath: "")
         }
         

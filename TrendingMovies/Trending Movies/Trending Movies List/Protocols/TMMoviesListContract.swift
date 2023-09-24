@@ -27,10 +27,8 @@ protocol TMMoviesListPresenterInterface: TMBasePresenter {
     var interactor: TMMoviesListInteractorInputInterface { get set }
     var wireframe: TMMoviesListWireframeInterface? { get set }
     
-    #warning("To be implemented while performing push to detail page..")
-//    func showPostDetail(forPost post: PostModel)
     func fetchMovies()
-
+    func didSelectMovie(_ movie: TMMovieUIModel)
 }
 
 protocol TMMoviesListInteractorInputInterface: TMBaseInteractor {
@@ -57,5 +55,6 @@ protocol TMMovieServiceInterface {
 }
 
 protocol TMMoviesListWireframeInterface: TMBaseWireFrame {
-    
+    static func buildModule() -> UIViewController
+    func navigateToMovieDetails(_ movie: TMMovieUIModel)
 }

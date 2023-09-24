@@ -184,12 +184,15 @@ extension TMMoviesListController: UITableViewDelegate, UITableViewDataSource, UI
             if indexPath.row < movies.count {
                 let movie = movies[indexPath.row]
                 SDWebImageManager.shared.loadImage(with: movie.posterURL(using: imagesConfig), options: [], progress: nil) {_,_,_,_,_,_ in }
-
             }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         192
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectMovie(movies[indexPath.row])
     }
 }

@@ -14,7 +14,7 @@ import UIKit
 class TMMoviesListWireframe: TMMoviesListWireframeInterface {
     
     weak var viewController: UIViewController?
-    
+    private weak var navigationController: UINavigationController?
 }
 
 // MARK: build's Module
@@ -23,9 +23,9 @@ extension TMMoviesListWireframe {
     
     static func buildModule() -> UIViewController {
         let wireframe = TMMoviesListWireframe()
-        let nav = storyboard.instantiateViewController(withIdentifier: "nav") as! UINavigationController
-        let view = nav.viewControllers.first as! TMMoviesListController
-        let interactor = TMMoviesListInteractor(configService: TMConfigurationService(), movieService: TMMovieService(), errorHandler: view)
+        wireframe.navigationController = storyboard.instantiateViewController(withIdentifier: "nav") as? UINavigationController
+        let view = wireframe.navigationController?.viewControllers.first as! TMMoviesListController
+        let interactor = TMMoviesListInteractor(configService: TMConfigurationService.shared, movieService: TMMovieService(), errorHandler: view)
         let presenter = TMMoviesListPresenter(view: view, interactor: interactor, errorHandler: view)
         
         view.presenter = presenter
@@ -37,21 +37,18 @@ extension TMMoviesListWireframe {
         interactor.output = presenter
         wireframe.viewController = view
         
-        return nav
+        return wireframe.navigationController ?? UIViewController()
     }
 
     static var storyboard: UIStoryboard {
         return UIStoryboard(name: "TMMovies", bundle: Bundle.main)
     }
-
-}
-
-extension UIStoryboard {
-
-    func instantiateViewController<T: UIViewController>(ofType _: T.Type, withIdentifier identifier: String? = nil) -> T {
-        let identifier = identifier ?? String(describing: T.self)
-
-        return instantiateViewController(withIdentifier: identifier) as! T
+    
+    func navigateToMovieDetails(_ movie: TMMovieUIModel) {
+        // Create and configure the Detail Module
+        let detailModule = TMMovieDetailsWireframe.buildModule(movie, configurationService: TMConfigurationService.shared)
+        
+        // Push the Detail View Controller onto the navigation stack
+        navigationController?.pushViewController(detailModule, animated: true)
     }
-
 }
