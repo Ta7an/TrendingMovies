@@ -22,11 +22,7 @@ jobs:
         pod install --repo-update
 
     - name: Build
-      run: xcodebuild build -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -allowProvisioningUpdates
+      run: xcodebuild build -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -allowProvisioningUpdates -destination 'platform=iOS Simulator,name=iPhone 12'
 
     - name: Run Unit Tests
       run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'
-
-    env:
-      DEVELOPER_ACCOUNT_EMAIL: ${{ secrets.DEVELOPER_ACCOUNT_EMAIL }}
-      DEVELOPER_ACCOUNT_PASSWORD: ${{ secrets.DEVELOPER_ACCOUNT_PASSWORD }}
