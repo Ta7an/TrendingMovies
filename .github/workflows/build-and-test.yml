@@ -22,7 +22,7 @@ jobs:
         pod install --repo-update
 
     - name: Build
-      run: xcodebuild build -workspace YourWorkspaceName.xcworkspace -scheme YourSchemeName
+      run: xcodebuild build -workspace TrendingMovies.xcworkspace -scheme TrendingMovies
 
     - name: Run Unit Tests
       run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'
