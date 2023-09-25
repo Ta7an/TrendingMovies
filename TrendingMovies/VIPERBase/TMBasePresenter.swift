@@ -16,10 +16,7 @@ protocol TMBasePresenter: AnyObject {
 
 extension TMBasePresenter {
     func viewDidLoad() {}
-    
     func viewDidDisappear(_ animated: Bool) {}
-    
     func viewWillAppear(_ animated: Bool) {}
-    
     func viewWillDisappear(_ animated: Bool) {}
 }

@@ -1,4 +1,3 @@
-
 //
 //  TMMoviesListContract.swift
 //  TrendingMovies
@@ -26,14 +25,12 @@ protocol TMMoviesListPresenterInterface: TMBasePresenter {
     var view: TMMoviesListViewInterface? { get set }
     var interactor: TMMoviesListInteractorInputInterface { get set }
     var wireframe: TMMoviesListWireframeInterface? { get set }
-    
     func fetchMovies()
     func didSelectMovie(_ movie: TMMovieUIModel)
 }
 
 protocol TMMoviesListInteractorInputInterface: TMBaseInteractor {
     var output: TMMoviesListInteractorOutputInterface? { get set }
-    
     func fetchConfiguration()
     func fetchMovies(page: Int)
 

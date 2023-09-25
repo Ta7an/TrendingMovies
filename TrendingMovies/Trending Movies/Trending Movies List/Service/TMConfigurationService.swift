@@ -15,12 +15,10 @@ class TMConfigurationService: TMConfigurationServiceInterface {
 
     func fetchConfig(completion: @escaping (Result<TMConfigModel, Error>) -> Void) {
         let url = "\(TMDBApiInfo.baseURL)/configuration"
-        
         let headers: HTTPHeaders = [
             "accept": "application/json",
             "Authorization": TMDBApiInfo.apiKey
         ]
-        
         let request = AF.request(url, method: .get, headers: headers)
             .validate()
 
@@ -34,7 +32,6 @@ class TMConfigurationService: TMConfigurationServiceInterface {
             }
         }
     }
-    
     var imagesConfig: TMImagesConfig? {
         configData?.images
     }
