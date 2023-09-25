@@ -27,3 +27,6 @@ jobs:
     - name: Run Unit Tests
       run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'
 
+    env:
+      DEVELOPER_ACCOUNT_EMAIL: ${{ secrets.DEVELOPER_ACCOUNT_EMAIL }}
+      DEVELOPER_ACCOUNT_PASSWORD: ${{ secrets.DEVELOPER_ACCOUNT_PASSWORD }}
