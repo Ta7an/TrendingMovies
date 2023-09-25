@@ -47,6 +47,7 @@
 		09602E4D2AC03412001F6280 /* TMMovieServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E4C2AC03412001F6280 /* TMMovieServiceTests.swift */; };
 		09602E4F2AC03477001F6280 /* TMConfigurationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E4E2AC03477001F6280 /* TMConfigurationServiceTests.swift */; };
 		09602E512AC034CE001F6280 /* TMMoviesListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09602E502AC034CE001F6280 /* TMMoviesListInteractorTests.swift */; };
+		0987F7202AC15DE400F4AD2A /* TMMoviesListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987F71F2AC15DE400F4AD2A /* TMMoviesListPresenterTests.swift */; };
 		B89FF777B0C7B398961EE0B6 /* Pods_TrendingMoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545968EA6B8BE8CC1A79482D /* Pods_TrendingMoviesTests.framework */; };
 		C558AC93C046CAA31408FB68 /* Pods_TrendingMovies_TrendingMoviesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40934978114BC806B2F8CBEC /* Pods_TrendingMovies_TrendingMoviesUITests.framework */; };
 		CAEA559D8DD38F5DE31694CC /* Pods_TrendingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C64DC5F4837ED332C3280A /* Pods_TrendingMovies.framework */; };
@@ -111,6 +112,7 @@
 		09602E4C2AC03412001F6280 /* TMMovieServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMovieServiceTests.swift; sourceTree = "<group>"; };
 		09602E4E2AC03477001F6280 /* TMConfigurationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfigurationServiceTests.swift; sourceTree = "<group>"; };
 		09602E502AC034CE001F6280 /* TMMoviesListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMoviesListInteractorTests.swift; sourceTree = "<group>"; };
+		0987F71F2AC15DE400F4AD2A /* TMMoviesListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMoviesListPresenterTests.swift; sourceTree = "<group>"; };
 		2D7135AF7CB11997A1AF230F /* Pods-TrendingMovies-TrendingMoviesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrendingMovies-TrendingMoviesUITests.release.xcconfig"; path = "Target Support Files/Pods-TrendingMovies-TrendingMoviesUITests/Pods-TrendingMovies-TrendingMoviesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		40934978114BC806B2F8CBEC /* Pods_TrendingMovies_TrendingMoviesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrendingMovies_TrendingMoviesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C64DC5F4837ED332C3280A /* Pods_TrendingMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrendingMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,6 +384,7 @@
 				09602E4C2AC03412001F6280 /* TMMovieServiceTests.swift */,
 				09602E4E2AC03477001F6280 /* TMConfigurationServiceTests.swift */,
 				09602E502AC034CE001F6280 /* TMMoviesListInteractorTests.swift */,
+				0987F71F2AC15DE400F4AD2A /* TMMoviesListPresenterTests.swift */,
 			);
 			path = "Trending Movies List";
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				09602E482AC02DB0001F6280 /* TMMoviesListWireframeTests.swift in Sources */,
 				09602E4D2AC03412001F6280 /* TMMovieServiceTests.swift in Sources */,
 				0901E49D2A8E53770079D5D5 /* TrendingMoviesTests.swift in Sources */,
+				0987F7202AC15DE400F4AD2A /* TMMoviesListPresenterTests.swift in Sources */,
 				09602E4F2AC03477001F6280 /* TMConfigurationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
