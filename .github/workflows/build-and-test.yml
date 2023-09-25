@@ -3,23 +3,26 @@ name: Build and Test
 on:
   pull_request:
     branches:
-      - main  # Replace with your main branch name
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest  # Use macOS runner for Xcode
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Swift
-      uses: actions/setup-swift@v2
-      with:
-        swift-version: '5.5'  # Specify the Swift version you're using
+    - name: Agree to Xcode license
+      run: sudo xcodebuild -license accept
+
+    - name: Install CocoaPods (if needed)
+      run: |
+        gem install cocoapods -v 1.12.1
+        pod install --repo-update
 
     - name: Build
-      run: swift build
+      run: xcodebuild build -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -allowProvisioningUpdates -destination 'platform=iOS Simulator,name=iPhone 12'
 
     - name: Run Unit Tests
-      run: swift test
+      run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'

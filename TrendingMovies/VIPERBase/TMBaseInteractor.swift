@@ -8,9 +8,7 @@
 import Foundation
 
 protocol TMBaseInteractor: AnyObject {
-    
 }
 
 extension TMBaseInteractor {
-    
 }

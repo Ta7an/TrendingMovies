@@ -1,4 +1,3 @@
-
 //
 //  TMMoviesListPresenter.swift
 //  TrendingMovies
@@ -12,7 +11,6 @@ import Foundation
 // MARK: TMMoviesListPresenter
 
 class TMMoviesListPresenter: TMMoviesListPresenterInterface {
-    
     weak var view: TMMoviesListViewInterface?
     var interactor: TMMoviesListInteractorInputInterface
     var wireframe: TMMoviesListWireframeInterface?
@@ -25,7 +23,6 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
         self.interactor = interactor
         self.errorHandler = errorHandler
     }
-    
     func presentMainLoading() {
         view?.showMainLoadingIndicator()
     }
@@ -44,7 +41,6 @@ class TMMoviesListPresenter: TMMoviesListPresenterInterface {
 }
 
 extension TMMoviesListPresenter {
-    
     func fetchMovies() {
         switch currentPage {
         case 1:
@@ -54,7 +50,6 @@ extension TMMoviesListPresenter {
         }
         interactor.fetchMovies(page: currentPage)
     }
-    
     func didSelectMovie(_ movie: TMMovieUIModel) {
         // When a movie cell is tapped, prepare the data and request navigation
         wireframe?.navigateToMovieDetails(movie)
@@ -69,15 +64,11 @@ extension TMMoviesListPresenter {
         interactor.fetchConfiguration()
         fetchMovies()
     }
-    
     func viewDidDisappear(_ animated: Bool) {
         self.interactor.outputFinished()
     }
-    
     func viewWillAppear(_ animated: Bool) {}
-    
     func viewWillDisappear(_ animated: Bool) {}
-    
 }
 
 extension TMMoviesListPresenter: TMMoviesListInteractorOutputInterface {
@@ -93,16 +84,13 @@ extension TMMoviesListPresenter: TMMoviesListInteractorOutputInterface {
     func onMoviesFetched(_ movies: [TMMovie]) {
         presentMainLoadingComplete()
         presentBottomLoadingComplete()
-        
-        let movieUIModels = transformMoviesToUIModels(movies: movies)
+            let movieUIModels = transformMoviesToUIModels(movies: movies)
         view?.updateMoviesList(movieUIModels)
         currentPage += 1
     }
-    
     func onConfigFetched(_ config: TMConfigModel) {
         view?.updateTMDBImagesConfig(config.images)
     }
-    
     func onError(_ error: Error) {
         presentMainLoadingComplete()
         presentBottomLoadingComplete()

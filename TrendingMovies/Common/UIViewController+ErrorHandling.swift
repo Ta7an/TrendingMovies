@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {    
+extension UIViewController {
     // Helper function to display an alert
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

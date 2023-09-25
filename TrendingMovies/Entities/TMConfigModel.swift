@@ -36,4 +36,3 @@ struct TMImagesConfig: Codable {
         case stillSizes = "still_sizes"
     }
 }
-

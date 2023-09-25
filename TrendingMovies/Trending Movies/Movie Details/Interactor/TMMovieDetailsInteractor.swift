@@ -1,4 +1,3 @@
-
 //
 //  TMMovieDetailsInteractor.swift
 //  TrendingMovies
@@ -13,9 +12,7 @@ import Foundation
 
 class TMMovieDetailsInteractor: TMBaseInteractor {
     let configurationService: TMConfigurationService
-    
     weak var output: TMMovieDetailsInteractorOutputInterface?
-    
     init(output: TMMovieDetailsInteractorOutputInterface?, configurationService: TMConfigurationService) {
         self.output = output
         self.configurationService = configurationService
@@ -25,15 +22,9 @@ class TMMovieDetailsInteractor: TMBaseInteractor {
 // MARK: TMMovieDetailsInteractorInputInterface - Output lifecycle Methods
 
 extension TMMovieDetailsInteractor: TMMovieDetailsInteractorInputInterface {
-    
     var configData: TMImagesConfig? {
         return configurationService.imagesConfig
     }
     func outputDidLoad() {}
-    
-    func outputFinished() {
-
-    }
-    
+    func outputFinished() {}
 }
-

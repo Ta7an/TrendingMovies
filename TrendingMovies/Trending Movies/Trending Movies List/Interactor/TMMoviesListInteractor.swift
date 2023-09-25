@@ -1,4 +1,3 @@
-
 //
 //  TMMoviesListInteractor.swift
 //  TrendingMovies
@@ -13,7 +12,6 @@ import Foundation
 
 class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
     weak var presenter: TMMoviesListInteractorOutputInterface?
-    
     private var configService: TMConfigurationService
     private var movieService: TMMovieService
     private let errorHandler: ErrorHandling
@@ -25,7 +23,6 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
         self.movieService = movieService
         self.errorHandler = errorHandler
     }
-    
     func fetchConfiguration() {
         configService.fetchConfig { [weak self] result in
             switch result {
@@ -36,7 +33,6 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
             }
         }
     }
-    
     func fetchMovies(page: Int) {
         movieService.fetchMovies(page: page) { [weak self] result in
             switch result {
@@ -52,13 +48,6 @@ class TMMoviesListInteractor: TMMoviesListInteractorInputInterface {
 // MARK: TMMoviesListInteractorInputInterface - Output lifecycle Methods
 
 extension TMMoviesListInteractor {
-    
     func outputDidLoad() {}
-    
-    func outputFinished() {
-//        disposibles.dispose()
-        
-    }
-    
+    func outputFinished() {}
 }
-

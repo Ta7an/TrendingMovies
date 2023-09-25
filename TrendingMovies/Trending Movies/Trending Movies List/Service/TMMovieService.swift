@@ -9,7 +9,6 @@ import Alamofire
 import Foundation
 
 class TMMovieService: TMMovieServiceInterface {
-    
     func fetchMovies(page: Int, completion: @escaping (Result<[TMMovie], Error>) -> Void) {
         let url = "\(TMDBApiInfo.baseURL)/discover/movie"
         let parameters: [String: Any] = [
@@ -19,13 +18,11 @@ class TMMovieService: TMMovieServiceInterface {
             "language": "en-US",
             "sort_by": "popularity.desc"
         ]
-        
-        let headers: HTTPHeaders = [
+            let headers: HTTPHeaders = [
             "accept": "application/json",
             "Authorization": TMDBApiInfo.apiKey
         ]
-        
-        let request = AF.request(url, method: .get, parameters: parameters, headers: headers)
+            let request = AF.request(url, method: .get, parameters: parameters, headers: headers)
             .validate()
 
         request.responseDecodable(of: TMMovieListResponse.self) { response in

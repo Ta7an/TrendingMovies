@@ -1,4 +1,3 @@
-
 //
 //  TMMovieDetailsContract.swift
 //  TrendingMovies
@@ -28,10 +27,8 @@ protocol TMMovieDetailsInteractorInputInterface: TMBaseInteractor {
 }
 
 protocol TMMovieDetailsInteractorOutputInterface: AnyObject {
-    
 }
 
 protocol TMMovieDetailsWireframeInterface: TMBaseWireFrame {
-    
     static func buildModule(_ movie: TMMovieUIModel, configurationService: TMConfigurationServiceInterface) -> UIViewController
 }

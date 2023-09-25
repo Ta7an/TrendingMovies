@@ -8,9 +8,7 @@
 import Foundation
 
 protocol TMBaseViewController: AnyObject {
-//    func setupUI()
 }
 
 extension TMBaseViewController {
-    
 }
