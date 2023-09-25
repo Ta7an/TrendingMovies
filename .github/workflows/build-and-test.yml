@@ -13,12 +13,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Xcode
-      run: sudo xcode-select --install
-
     - name: Agree to Xcode license
       run: sudo xcodebuild -license accept
-
 
     - name: Install CocoaPods (if needed)
       run: |
