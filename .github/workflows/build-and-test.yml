@@ -3,7 +3,7 @@ name: Build and Test
 on:
   pull_request:
     branches:
-      - main  # Replace with your main branch name
+      - main
 
 jobs:
   build:
@@ -13,14 +13,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Xcode
-      uses: actions/setup-xcode@v2
-      with:
-        xcode-version: 14.3  # Replace with your desired Xcode version
+    - name: Install Xcode
+      run: sudo xcode-select --install
+
+    - name: Agree to Xcode license
+      run: sudo xcodebuild -license accept
+
 
     - name: Install CocoaPods (if needed)
       run: |
-        gem install cocoapods -v 1.10.0
+        gem install cocoapods -v 1.12.1
         pod install --repo-update
 
     - name: Build
@@ -29,4 +31,3 @@ jobs:
     - name: Run Unit Tests
       run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'
 
-    # Add additional steps as needed for your project
