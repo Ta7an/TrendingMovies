@@ -7,23 +7,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest  # Use macOS runner for Xcode
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Set up Xcode
-      uses: xcode-actions/setup-xcode@v2
+      uses: actions/setup-xcode@v2
       with:
-        xcode-version: 13  # Specify the Xcode version you want to use
+        xcode-version: 13.0  # Replace with your desired Xcode version
 
-    - name: Install dependencies
+    - name: Install CocoaPods (if needed)
       run: |
-        gem install bundler
-        bundle install
+        gem install cocoapods -v 1.10.0
+        pod install --repo-update
 
-    - name: Build and Test
-      run: |
-        xcodebuild -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 13' build test
+    - name: Build
+      run: xcodebuild build -workspace YourWorkspaceName.xcworkspace -scheme YourSchemeName
 
+    - name: Run Unit Tests
+      run: xcodebuild test -workspace TrendingMovies.xcworkspace -scheme TrendingMovies -destination 'platform=iOS Simulator,name=iPhone 12'
+
+    # Add additional steps as needed for your project
